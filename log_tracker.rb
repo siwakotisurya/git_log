@@ -9,7 +9,7 @@ class LogTracker
 	end
 
 	def git_log
-
+		
 	end
 
 end
