@@ -1,4 +1,4 @@
-class LogTracker
+class LogTracker 
 
 	require './modules/log_formatter'
 
@@ -12,11 +12,11 @@ class LogTracker
 	end
 
 	def output_log
-		self.format_json(@git_log)
+		json_data = self.format_json(@git_log)
 	end
 
 end
 
-track_log = LogTracker.new
+git = LogTracker.new
 
-track_log.output_log
+git.output_log
