@@ -1,0 +1,3 @@
+class LogTracker
+	
+end
