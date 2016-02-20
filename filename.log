@@ -1,0 +1,28 @@
+commit c310656a4b42a5a417ce3810f283f9ba032f180e
+Author: siwakotisurya <siwakotisurya@outlook.com>
+Date:   Sat Feb 20 20:25:24 2016 +0545
+
+    grab git log of today
+
+commit fbb9e0402462604200ed837bfd0ec292125f4afd
+Author: siwakotisurya <siwakotisurya@outlook.com>
+Date:   Sat Feb 20 20:16:41 2016 +0545
+
+    valid_checker class created
+
+commit 622512cbfa5a1532b283710e4b7516e4857ebe70
+Author: siwakotisurya <siwakotisurya@outlook.com>
+Date:   Sat Feb 20 20:11:34 2016 +0545
+
+    log_formatter module created
+
+commit 03f9e896084b77e89aaf6d54ba4343e33f969db7
+Author: siwakotisurya <siwakotisurya@outlook.com>
+Date:   Sat Feb 20 20:01:32 2016 +0545
+
+    folder structure managed
+    module created
+    class created
+
+
+git log --pretty=format:'{%n  "commit": "%H",%n  "author": "%an <%ae>",%n  "date": "%ad",%n  "message": "%f"%n},'

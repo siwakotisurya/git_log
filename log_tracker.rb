@@ -1,13 +1,22 @@
 class LogTracker
 
-	attr_accessor :start_time
+	require './modules/log_formatter'
+
+	DIR_NAME =  `git rev-parse --show-toplevel`
+
+	include LogFormatter
 
 	def initialize
-		@start_time = start_time
+		repo_name = DIR_NAME.split("\n").join("").split("/")
+		@git_log = `git log --pretty=format:'{%n  "commit": "%H",%n  "author": "%an <%ae>",%n  "date": "%ad",%n  "title": "%s",%n "description": "%b", %n "project_name": "#{repo_name.pop}"%n},' --since="yesterday"` 
 	end
 
-	def git_log
-		`git log --after="yesterday"`
+	def output_log
+		self.format_json(@git_log)
 	end
 
 end
+
+track_log = LogTracker.new
+
+track_log.output_log
