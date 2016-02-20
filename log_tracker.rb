@@ -6,6 +6,8 @@ class LogTracker
 
 	require "pry"
 
+	require "json"
+
 	DIR_NAME =  `git rev-parse --show-toplevel`
 
 	include LogFormatter
@@ -18,11 +20,13 @@ class LogTracker
 
 	def output_log
 		json_data = self.format_json(@git_log)
+		if valid_json?(@git_log)
+			puts json_data
+		else
+			puts "Sorry Json Data is in bad format"
+		end
 	end
 
-	def execute_command
-		
-	end
 
 	def parse_json
 		tasks = ["bug fixing", "development"]
@@ -41,8 +45,21 @@ class LogTracker
 			end
 		end
 	end
+
+	private 
+
+	def valid_json?(git_data)
+		begin
+		  JSON.parse(git_data)
+		  return true  
+		rescue JSON::ParserError => e  
+			return true
+		end 
+	end	
+
 end
 
 git = LogTracker.new
 git.parse_json
 git.user_data
+git.output_log
