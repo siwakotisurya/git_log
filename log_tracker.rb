@@ -8,6 +8,8 @@ class LogTracker
 
 	require "json"
 
+	require "date"
+
 	DIR_NAME =  `git rev-parse --show-toplevel`
 
 	include LogFormatter
@@ -43,6 +45,13 @@ class LogTracker
 				puts key
 				puts value
 			end
+		end
+		puts "When Did You start The Project ?"
+		user_time = gets.chomp
+		begin
+			parse_date = DateTime.parse(user_time)
+		rescue DateTime::ParserError => e
+			return false
 		end
 	end
 
