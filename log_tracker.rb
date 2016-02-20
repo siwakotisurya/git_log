@@ -21,6 +21,7 @@ class LogTracker
 	end
 
 	def execute_command
+		
 	end
 
 	def parse_json
@@ -33,7 +34,6 @@ class LogTracker
 	end
 
 	def user_data
-		binding.pry
 		@tasks_array.each do |tasks|
 			tasks.each do |key, value|
 				puts key
@@ -41,7 +41,6 @@ class LogTracker
 			end
 		end
 	end
-
 end
 
 git = LogTracker.new
